@@ -21,7 +21,7 @@ module.exports = {
         "build" //打包
       ]
     ], // 可提交的关键字
-    // "type-case": [0], // 关键字小写
+    "type-case": [0], // 关键字小写
     "type-empty": [0], // 关键字不能为空
     "subject-full-stop": [0, "never"], // 结尾符号
     "subject-case": [0, "never"], // 内容小写

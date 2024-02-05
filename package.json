@@ -9,7 +9,6 @@
     "lint": "lint-staged",
     "lint-fix": "eslint --fix --ext .ts,.js,.vue src",
     "tslint": "vue-tsc --noEmit --skipLibCheck",
-    "commit": "git add . && git-cz",
     "commitlint": "commitlint --config commitlint.config.cjs -e -V"
   },
   "dependencies": {
@@ -65,11 +64,6 @@
     "*.{scss,less,styl,html,md}": [
       "prettier --write"
     ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "@commitlint/cz-commitlint"
-    }
   },
   "packageManager": "pnpm@8.6.0",
   "engines": {
