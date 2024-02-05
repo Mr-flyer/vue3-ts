@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "composite": true, // 约束当前目录下所有文件
+    "skipLibCheck": true, // // 跳过声明文件的类型检查
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true // 允许合成默认导入
+  },
+  // 编译需包含的文件
+  "include": ["vite.config.ts"],
+  // 排除的文件
+  "exclude": ["node_modules", "vite/plugins", "vite/index.ts"]
+}
