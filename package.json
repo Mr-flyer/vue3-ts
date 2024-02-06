@@ -6,9 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
+    "serve:dev": "vite preview --mode dev",
+    "serve:prod": "vite preview --mode prod",
     "lint": "lint-staged",
-    "lint-fix": "eslint --fix --ext .ts,.js,.vue src",
-    "tslint": "vue-tsc --noEmit --skipLibCheck",
+    "lint:eslint": "eslint --fix --ext .ts,.js,.vue src",
+    "lint:style": "stylelint src/**/*.{css,scss,vue} --cache --fix",
+    "ts:check": "vue-tsc --noEmit --skipLibCheck",
     "commitlint": "commitlint --config commitlint.config.cjs -e -V"
   },
   "dependencies": {

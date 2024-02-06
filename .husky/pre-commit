@@ -5,4 +5,4 @@
 
 PATH="/usr/local/bin:$PATH"
 
-pnpm lint & pnpm tslint
+pnpm lint & pnpm ts:check

@@ -7,7 +7,7 @@
     "allowSyntheticDefaultImports": true // 允许合成默认导入
   },
   // 编译需包含的文件
-  "include": ["vite.config.ts"],
+  "include": ["vite.config.ts", "vite/plugins", "vite/index.ts"],
   // 排除的文件
-  "exclude": ["node_modules", "vite/plugins", "vite/index.ts"]
+  "exclude": ["node_modules"]
 }

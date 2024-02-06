@@ -48,7 +48,7 @@ module.exports = {
   // "error" 或 2 - 打开规则作为错误（触发时退出代码为 1）
   rules: {
     indent: ["error", 2], // 缩进模式 2空格，参二可设置为`tab`
-    "linebreak-style": ["error", "unix"], // 行尾/换行符LF
+    // "linebreak-style": ["error", "unix"], // 行尾/换行符LF
     quotes: ["error", "double"], // 字符串双引号
     semi: ["error", "always"], // 结尾加;号
 
