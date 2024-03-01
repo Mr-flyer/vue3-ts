@@ -9,5 +9,5 @@
   // 编译需包含的文件
   "include": ["vite.config.ts", "vite/plugins", "vite/index.ts"],
   // 排除的文件
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }

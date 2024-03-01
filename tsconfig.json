@@ -1,10 +1,16 @@
 {
-  "compilerOptions": { // 编译配置
+  "compilerOptions": {
+    // 编译配置
     "target": "ES2020",
     "useDefineForClassFields": true, // Class规范
     "module": "ESNext", // 模块系统模式
     "lib": ["ES2020", "DOM", "DOM.Iterable"], // 编译时引入的 ES 功能库
     "skipLibCheck": true, // 跳过声明文件的类型检查
+    "baseUrl": "./", // 非绝对地址的模块会基于这个目录去解析，默认值是当前目录
+    "paths": {
+      // 配置具体如何解析 require/import 的导入，值是基于 baseUrl 路径的映射列表。https://www.typescriptlang.org/tsconfig#paths
+      "@/*": ["src/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler", // 模块解析策略

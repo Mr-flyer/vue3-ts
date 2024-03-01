@@ -1,0 +1,23 @@
+// 覆盖element主题样式
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': #01aeba,
+    ),
+    'success': (
+      'base': #68c23a,
+    ),
+    'warning': (
+      'base': #ffc525,
+    ),
+    'danger': (
+      'base': #ef5d4a,
+    ),
+    'error': (
+      'base': #ef5d4a,
+    ),
+    'info': (
+      // 'base': #01aeba,
+    ),
+  )
+);

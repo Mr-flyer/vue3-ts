@@ -93,6 +93,7 @@ module.exports = {
     "@typescript-eslint/no-non-null-assertion": "off", // 禁用运算符的非 null 断言 》如 a!.b
     "@typescript-eslint/explicit-function-return-type": "off", // 函数标明返回类型
     "@typescript-eslint/explicit-module-boundary-types": "off", // 导出的函数标明入参、返回类型
+    "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-this-alias": [
       "error",
       {
