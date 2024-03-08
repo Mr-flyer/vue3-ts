@@ -19,9 +19,11 @@
     "isolatedModules": true, // 启用模块隔离
     "noEmit": true, // 编译后不输出js文件
     "jsx": "preserve", // 在 .tsx 中支持 JSX
-
+    
     /* Linting */
     "strict": true,
+    "allowJs": true, // 编译JS，JSX文件
+    "checkJs": true, // 检查JS文件
     "noUnusedLocals": true, // 报错》未使用的局部变量
     "noUnusedParameters": true, // 报错》函数中未使用的入参
     "noFallthroughCasesInSwitch": true // 报错》Switch中无效条件

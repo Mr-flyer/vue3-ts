@@ -60,7 +60,7 @@ export class Service {
 
         // 针对code码处理错误
         const { code } = sourceData;
-        if (code === 200) return sourceData;
+        if (code === 0) return sourceData;
         this.#onGeneralError(sourceData, config);
         return Promise.reject(sourceData);
       },

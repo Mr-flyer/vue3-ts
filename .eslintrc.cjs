@@ -47,10 +47,10 @@ module.exports = {
   // "warn" 或 1 - 打开规则作为警告（不影响退出代码）
   // "error" 或 2 - 打开规则作为错误（触发时退出代码为 1）
   rules: {
-    indent: ["error", 2], // 缩进模式 2空格，参二可设置为`tab`
+    // indent: ["error", 2], // 缩进模式 2空格，参二可设置为`tab`
     // "linebreak-style": ["error", "unix"], // 行尾/换行符LF
-    quotes: ["error", "double"], // 字符串双引号
-    semi: ["error", "always"], // 结尾加;号
+    // quotes: ["error", "double"], // 字符串双引号
+    // semi: ["error", "always"], // 结尾加;号
 
     // eslint https://eslint.nodejs.cn/docs/rules
     "no-var": "error", // 要求使用 let 或 const 而不是 var
@@ -102,6 +102,11 @@ module.exports = {
       }
     ],
 
-    "prettier/prettier": "off" // 关闭 prettier 的 ESLint 校验
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto" // 行尾/换行符
+      }
+    ]
   }
 };

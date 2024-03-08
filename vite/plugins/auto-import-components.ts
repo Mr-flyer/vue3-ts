@@ -14,6 +14,7 @@ export default function createAutoImportComponents(command) {
   return [
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
+      // 自动导入（函数）
       dts: "types/auto-imports.d.ts",
       imports: ["vue", "vue-router"],
       eslintrc: { enabled: true },
@@ -24,9 +25,10 @@ export default function createAutoImportComponents(command) {
     }),
     // https://github.com/antfu/unplugin-vue-components#readme
     Components({
+      // 自动注册（组件）
       dts: "types/components.d.ts",
       resolvers: [
-        ElementPlusResolver()
+        ElementPlusResolver({ importStyle: "sass" })
         // IconsResolver({ enabledCollections: ['ep'] }),
       ]
       // resolvers: command === 'build' ? ElementPlusResolver() : undefined,

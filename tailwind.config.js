@@ -12,7 +12,7 @@ module.exports = {
           "light-7": "var(--el-color-primary-light-7)",
           "light-8": "var(--el-color-primary-light-8)",
           "light-9": "var(--el-color-primary-light-9)",
-          "dark-2": "var(--el-color-primary-dark-2)",
+          "dark-2": "var(--el-color-primary-dark-2)"
         },
         br: "var(--el-border-color)",
         "br-light": "var(--el-border-color-light)",
@@ -21,22 +21,21 @@ module.exports = {
         fill: "var(--el-fill-color)",
         "fill-light": "var(--el-fill-color-light)",
         "fill-lighter": "var(--el-fill-color-lighter)",
-        mask: "var(--el-mask-color)",
-      },
-
+        mask: "var(--el-mask-color)"
+      }
     },
     fontFamily: {
-      sans: ["PingFang SC", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "sans-serif"],
+      sans: ["PingFang SC", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "sans-serif"]
     },
     boxShadow: {
       DEFAULT: "var(--el-box-shadow)",
       light: "var(--el-box-shadow-light)",
       lighter: "var(--el-box-shadow-lighter)",
-      dark: "var(--el-box-shadow-dark)",
+      dark: "var(--el-box-shadow-dark)"
     },
     svg: {
       display: "inline",
-      "vertical-align": "baseline",
+      "vertical-align": "baseline"
     },
     fontSize: {
       xs: "var(--el-font-size-extra-small)",
@@ -51,7 +50,7 @@ module.exports = {
       "6xl": "30px",
       "7xl": "36px",
       "8xl": "48px",
-      "9xl": "60px",
+      "9xl": "60px"
     },
     spacing: {
       px: "1px",
@@ -88,7 +87,7 @@ module.exports = {
       64: "256px",
       72: "288px",
       80: "320px",
-      96: "384px",
+      96: "384px"
     },
     lineHeight: {
       none: "1",
@@ -104,7 +103,7 @@ module.exports = {
       7: "28px",
       8: "32px",
       9: "36px",
-      10: "40px",
-    },
-  },
+      10: "40px"
+    }
+  }
 };

@@ -4,7 +4,7 @@
     "skipLibCheck": true, // // 跳过声明文件的类型检查
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true // 允许合成默认导入
+    "allowSyntheticDefaultImports": true // 允许合成默认导入，如 import React from "react"
   },
   // 编译需包含的文件
   "include": ["vite.config.ts", "vite/plugins", "vite/index.ts"],

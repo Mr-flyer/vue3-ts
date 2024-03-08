@@ -19,9 +19,19 @@ export default defineConfig(({ mode, command }) => {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: "@use '@/styles/element.theme.scss' as *;",
-        },
-      },
+          additionalData: "@use '@/styles/element.theme.scss' as *;"
+        }
+      }
+    },
+    server: {
+      proxy: {
+        "/api": {
+          target: env.VITE_ADMIN_PROXY_PATH, // 目标服务器地址
+          ws: true, // 是否启用 WebSocket
+          changeOrigin: true // 是否修改请求头中的 Origin 字段
+          // rewrite: (path) => path.replace(/^\/api/, ''),
+        }
+      }
     },
     // 全局常量
     define: {

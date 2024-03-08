@@ -2,7 +2,7 @@
 @forward 'element-plus/theme-chalk/src/common/var.scss' with (
   $colors: (
     'primary': (
-      'base': #01aeba,
+      'base': #2E5CF6,
     ),
     'success': (
       'base': #68c23a,
@@ -21,3 +21,6 @@
     ),
   )
 );
+
+// 按需导入时 需忽略
+// @use 'element-plus/theme-chalk/src/index.scss' as *;
