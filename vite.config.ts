@@ -6,7 +6,7 @@ const pathResolve = (dir: string) => {
   return resolve(__dirname, ".", dir);
 };
 const alias: Record<string, string> = {
-  "@": "/src"
+  "@": pathResolve("src")
 };
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => {

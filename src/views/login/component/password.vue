@@ -44,20 +44,26 @@
 
 <script lang="ts" setup>
 import type { FormInstance } from "element-plus";
+import { useUserInfo } from "@/stores/userInfo";
 
 // 动态加载滑块验证码组件
 const Verify = defineAsyncComponent(() => import("@/components/Verifition/Verify.vue"));
 
+// 组件实例ref
 const verifyRef = ref<InstanceType<typeof Verify>>();
 const loginFormRef = ref<FormInstance>();
 
+// 变量
+const emit = defineEmits(["signInSuccess"]);
+const loading = ref(false);
 const state = reactive({
   loading: false,
   loginForm: {
     // 表单数据
     username: "", // 用户名
     password: "", // 密码
-    code: ""
+    code: "", // 验证码
+    randomStr: "blockPuzzle" // 验证码随机数
   },
   loginRules: {
     // 表单校验
@@ -77,7 +83,18 @@ const handleVerify = async () => {
 // 滑块验证码校验成功调用后台登录接口
 const verifySuccess = (params: any) => {
   state.loginForm.code = params.captchaVerification; // 获取验证码
-  // onSignIn(); // 调用登录方法
+  onSignIn(); // 调用登录方法
+};
+
+// 账号密码登录
+const onSignIn = async () => {
+  try {
+    loading.value = true;
+    await useUserInfo().login(state.loginForm);
+    emit("signInSuccess");
+  } finally {
+    loading.value = false;
+  }
 };
 </script>
 

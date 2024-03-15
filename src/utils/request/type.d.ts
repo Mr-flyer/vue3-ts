@@ -32,8 +32,8 @@ declare module "axios" {
   export interface ILoginResponse<T = any> {
     code: number;
     msg: string;
-    token: string;
-    jpassToken: string;
+    access_token: string;
+    refresh_token: string;
   }
   /**用户详情独有响应 */
   export interface IUserInfoResponse<T = any> {

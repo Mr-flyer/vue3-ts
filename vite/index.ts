@@ -8,6 +8,7 @@ import createSvgIcon from "./plugins/svg-icon";
 import buildZip from "./plugins/zip";
 import createVisualizer from "./plugins/visualizer";
 import createImportToCDN from "./plugins/importToCDN";
+import createPluginInject from "./plugins/plugin-inject";
 
 export default function createVitePlugins({ env: viteEnv, mode, command }) {
   const isBuild = command === "build";
@@ -17,6 +18,7 @@ export default function createVitePlugins({ env: viteEnv, mode, command }) {
   // vitePlugins.push(buildZip());
   // vitePlugins.push(createVisualizer());
   // vitePlugins.push(createImportToCDN());
+  // vitePlugins.push(createPluginInject());
   return vitePlugins;
 }
 

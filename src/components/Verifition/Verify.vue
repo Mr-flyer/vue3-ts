@@ -16,96 +16,133 @@
           :is="componentType"
           v-if="componentType"
           ref="instance"
-          v-bind="$props"
+          :arith="arith"
+          :bar-size="barSize"
+          :block-size="blockSize"
+          :captcha-type="captchaType"
+          :explain="explain"
+          :figure="figure"
+          :img-size="imgSize"
+          :mode="mode"
           :type="verifyType"
+          :v-space="vSpace"
         />
       </div>
     </div>
   </div>
 </template>
-<script lang="ts" setup>
+<script>
 /**
  * Verify 验证码组件
  * @description 分发验证码使用
  * */
+import { computed, ref, toRefs, watchEffect, defineAsyncComponent } from "vue";
 const VerifySlide = defineAsyncComponent(
   () => import("@/components/Verifition/Verify/VerifySlide.vue")
 );
 const VerifyPoints = defineAsyncComponent(
   () => import("@/components/Verifition/Verify/VerifyPoints.vue")
 );
-interface IProps {
-  captchaType: string;
-  figure?: number;
-  arith?: number;
-  mode?: string;
-  vSpace?: number;
-  explain?: string;
-  imgSize?: {
-    width: string;
-    height: string;
-  };
-  blockSize?: any;
-  barSize?: any;
-}
-const props = withDefaults(defineProps<IProps>(), {
-  mode: "pop",
-  imgSize: () => ({
-    width: "310px",
-    height: "155px"
-  })
-});
 
-const { captchaType, mode } = toRefs(props);
-const clickShow = ref(false);
-const verifyType = ref<string>();
-const componentType = ref<any>();
+export default {
+  name: "Vue2Verify",
+  components: {
+    VerifySlide,
+    VerifyPoints
+  },
+  props: {
+    captchaType: {
+      type: String,
+      required: true
+    },
+    figure: {
+      type: Number
+    },
+    arith: {
+      type: Number
+    },
+    mode: {
+      type: String,
+      default: "pop"
+    },
+    vSpace: {
+      type: Number
+    },
+    explain: {
+      type: String
+    },
+    imgSize: {
+      type: Object,
+      default() {
+        return {
+          width: "310px",
+          height: "155px"
+        };
+      }
+    },
+    blockSize: {
+      type: Object
+    },
+    barSize: {
+      type: Object
+    }
+  },
+  setup(props) {
+    const { captchaType, mode } = toRefs(props);
+    const clickShow = ref(false);
+    const verifyType = ref(undefined);
+    const componentType = ref(undefined);
 
-const instance = ref();
+    const instance = ref({});
 
-const showBox = computed(() => {
-  if (mode.value == "pop") {
-    return clickShow.value;
-  } else {
-    return true;
-  }
-});
-/**刷新 */
-const refresh = () => {
-  if (instance.value.refresh) {
-    instance.value.refresh();
+    const showBox = computed(() => {
+      if (mode.value == "pop") {
+        return clickShow.value;
+      } else {
+        return true;
+      }
+    });
+    /**
+     * refresh
+     * @description 刷新
+     * */
+    const refresh = () => {
+      if (instance.value.refresh) {
+        instance.value.refresh();
+      }
+    };
+    const closeBox = () => {
+      clickShow.value = false;
+      refresh();
+    };
+    const show = () => {
+      if (mode.value == "pop") {
+        clickShow.value = true;
+      }
+    };
+    watchEffect(() => {
+      switch (captchaType.value) {
+        case "blockPuzzle":
+          verifyType.value = "2";
+          componentType.value = "VerifySlide";
+          break;
+        case "clickWord":
+          verifyType.value = "";
+          componentType.value = "VerifyPoints";
+          break;
+      }
+    });
+    return {
+      clickShow,
+      verifyType,
+      componentType,
+      instance,
+      showBox,
+      closeBox,
+      show
+    };
   }
 };
-const closeBox = () => {
-  clickShow.value = false;
-  refresh();
-};
-const show = () => {
-  if (mode.value == "pop") {
-    clickShow.value = true;
-  }
-};
-watchEffect(() => {
-  switch (captchaType.value) {
-    case "blockPuzzle":
-      verifyType.value = "2";
-      componentType.value = VerifySlide;
-      break;
-    case "clickWord":
-      verifyType.value = "";
-      componentType.value = VerifyPoints;
-      break;
-  }
-});
-defineExpose({
-  clickShow,
-  verifyType,
-  componentType,
-  instance,
-  showBox,
-  closeBox,
-  show
-});
 </script>
 <style>
 .verifybox {
@@ -119,6 +156,7 @@ defineExpose({
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
 .verifybox-top {
   padding: 0 15px;
   height: 50px;

@@ -8,5 +8,4 @@ import zhCN from "element-plus/dist/locale/zh-cn.mjs";
   </el-config-provider>
 </template>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

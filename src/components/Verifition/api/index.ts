@@ -4,12 +4,10 @@
 
 import request from "@/utils/request";
 
-// request({})
 //获取验证图片  以及token
 export function reqGet(data: any) {
   return request.get({
     url: "/admin/code/create",
-    method: "get",
     data
   });
 }

@@ -16,7 +16,7 @@ export default function createAutoImportComponents(command) {
     AutoImport({
       // 自动导入（函数）
       dts: "types/auto-imports.d.ts",
-      imports: ["vue", "vue-router"],
+      imports: ["vue", "vue-router", "pinia"],
       eslintrc: { enabled: true },
       resolvers: [
         ElementPlusResolver({ importStyle: "sass" })

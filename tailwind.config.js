@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  corePlugins: {
+    // preflight: false
+  },
   theme: {
     // 扩展 tailwindcss 不建议强制覆盖原有
     extend: {
